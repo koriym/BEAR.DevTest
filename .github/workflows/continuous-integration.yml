@@ -38,14 +38,14 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          key: ${{ runner.os }}-composer-
           restore-keys: ${{ runner.os }}-composer-
 
       - name: Create BEAR.Sunday skeleton app
-        run: composer create-project bear/skeleton dev-dev-test --prefer-source --no-interaction --no-progress
+        run: composer create-project bear/skeleton app dev-dev --prefer-source --no-interaction --no-progress
 
       - name: Run ray/aop test suite
-        run: cd ./vendor/ray/aop && composer install && composer tests
+        run: cd ./dev/vendor/ray/aop && composer install && composer tests
 
       - name: Run ray/di test suite
-        run: cd ./vendor/ray/di && composer install && composer tests
+        run: cd ./dev/vendor/ray/di && composer install && composer tests
