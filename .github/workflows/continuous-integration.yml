@@ -45,7 +45,7 @@ jobs:
         run: composer create-project bear/skeleton app dev-dev --prefer-source --no-interaction --no-progress
 
       - name: Run ray/aop test suite
-        run: cd ./dev/vendor/ray/aop && composer install && composer tests
+        run: cd ./app/vendor/ray/aop && composer install && composer tests
 
       - name: Run ray/di test suite
-        run: cd ./dev/vendor/ray/di && composer install && composer tests
+        run: cd ./app/vendor/ray/di && composer install && composer tests
